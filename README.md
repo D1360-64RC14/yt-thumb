@@ -31,4 +31,4 @@ docker run --detach --restart unless-stopped yt-thumb
 
 ---
 
-Projeto desenvolvido para aula de Arquitetura Cloud.
+Projeto desenvolvido para aula de Arquitetura Cloud sobre Docker.

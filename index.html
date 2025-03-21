@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Thumbnail</title>
+</head>
+<body>
+    <div>
+        <label for="video_url">Video URL:</label>
+        <input type="url" id="video_url" autofocus title="Cole uma URL de um vídeo do YouTube aqui">
+        <span id="invalid_announce" style="color: red; opacity: 0;">(URL inválida!)</span>
+    </div>
+
+    <script>
+    const videoUrl = document.getElementById("video_url");
+    const invalidAnnounce = document.getElementById("invalid_announce");
+
+    videoUrl.oninput = () => {
+        const vo = {
+            url: new URL(videoUrl.value),
+            "shorts" () { return this.url.pathname.slice(8);     },
+            "video"  () { return this.url.searchParams.get("v"); },
+            "share"  () { return this.url.pathname.slice(1);     },
+            get type() {
+                return this.url.pathname.startsWith("/shorts") ? "shorts"
+                    : this.url.pathname.startsWith("/watch")  ? "video"
+                    : "share";
+            },
+            get id() {
+                return this[this.type]();
+            },
+            get thumbnail() {
+                return new URL(`https://i.ytimg.com/vi/${this.id}/maxresdefault.jpg`);
+            }
+        };
+
+        if (!/^(www.)?youtu((.be$)|(be.com$))/i.exec(vo.url.hostname)) {
+            invalidAnnounce.style.opacity = 1;
+            return;
+        }
+
+        invalidAnnounce.style.opacity = 0;
+
+        console.log(JSON.stringify(vo, null, 4));
+        document.location.href = vo.thumbnail.href;
+    }
+</script>
+
+</body>
+</html>

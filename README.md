@@ -10,13 +10,13 @@ do YouTube em alta qualidade, dado o link para o mesmo.
 - Share: `https://youtu.be/xxxxxxxxx`
 - Shorts: `https://www.youtube.com/shorts/xxxxxxxxx`
 
-## Executar Container (do DockerHub)
+## Executando o Container (do DockerHub)
 
 ```bash
 docker run --detach --restart unless-stopped d1360x64rc14/yt-thumb
 ```
 
-## Buildar Imagem (do Repositório)
+## Buildando a Imagem (do Repositório)
 
 ```bash
 # 1. Clonar repositório do GitHub
@@ -29,11 +29,19 @@ cd yt-thumb
 docker build -t yt-thumb .
 ```
 
-### Executar Container
+### Executando o Container
 
 ```bash
-docker run --detach --restart unless-stopped yt-thumb
+docker run --detach --restart unless-stopped --port 3300:80 yt-thumb
 ```
+
+## Utilizando o Projeto
+
+Com o container rodando, acesse
+<a href="http://localhost:3300" target="_blank">http://localhost:3300</a>
+para abrir a página principal do projeto. Nesta, cole uma URL do YouTube compatível
+com o [formato suportado](#formatos-de-link-suportados) para obter a thumbnail
+do vídeo em alta resolução.
 
 ---
 

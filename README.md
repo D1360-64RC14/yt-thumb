@@ -10,13 +10,13 @@ do YouTube em alta qualidade, dado o link para o mesmo.
 - Share: `https://youtu.be/xxxxxxxxx`
 - Shorts: `https://www.youtube.com/shorts/xxxxxxxxx`
 
-## Executando o Container (do DockerHub)
+## Executando o Container [(do DockerHub)](https://hub.docker.com/r/d1360x64rc14/yt-thumb)
 
 ```bash
 docker run --detach --restart unless-stopped d1360x64rc14/yt-thumb
 ```
 
-## Buildando a Imagem (do Repositório)
+## Buildando a Imagem [(do Repositório)](https://github.com/D1360-64RC14/yt-thumb)
 
 ```bash
 # 1. Clonar repositório do GitHub

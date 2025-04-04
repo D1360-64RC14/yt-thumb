@@ -21,7 +21,7 @@ do vídeo em alta resolução.
 ## Executando o Container [(do DockerHub)](https://hub.docker.com/r/d1360x64rc14/yt-thumb)
 
 ```bash
-docker run --detach --restart unless-stopped d1360x64rc14/yt-thumb
+docker run --detach --restart unless-stopped -p 3300:80 d1360x64rc14/yt-thumb
 ```
 
 ## Buildando a Imagem [(do Repositório)](https://github.com/D1360-64RC14/yt-thumb)
@@ -40,7 +40,7 @@ docker build -t yt-thumb .
 ### Executando o Container
 
 ```bash
-docker run --detach --restart unless-stopped --port 3300:80 yt-thumb
+docker run --detach --restart unless-stopped -p 3300:80 yt-thumb
 ```
 
 ---
